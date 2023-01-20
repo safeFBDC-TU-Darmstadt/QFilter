@@ -1,4 +1,6 @@
 # QFilter: Integration of Access Control with Aggregation Query Processing over Outsourced Data #
+QFilter is a fine-grained access control enforcement mechanism tightly integrated with query processing to evaluate aggregation SQL queries over secret-shared data without revealing any information about data, associated access policies, user queries and query results. QFilter can process simple and multi-dimensional SQL queries including aggregation functions "count", "sum", and "avg" over secret-shared data without the need of communication between servers during query execution. It is a privacy-preserving communication-efficient approach which can supprot two level of policy attachemts: Tuple level Policy Attachemnt and Attribute Level Policy Attachment.
+
 
 ## Configuration &amp; System Requirements ##
 The memory usage of this prototype is mainly determined by the number of servers and the upload batch size.
