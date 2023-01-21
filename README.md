@@ -29,7 +29,7 @@ For a correct startup, wait for a confirming console output of after calling <co
 After calling <code>user.DataUser.main()</code>, you can input attributes one by one or simple queries for the *LINEITEM* table (this prototype only supports count, sum and avg aggregation, query conditions with the same conditional type (AND/OR), and only simple query predicates like "attr=const").
 We only use the following attributes of the *LINEITEM* table: "orderkey", "partkey", "suppkey", "linenumber", "quantity", "extendedprice", "discount" and "tax".
 
-## ABAC Implementation ##
+## Implementation of ABAC Model ##
 The Attribute Based Access Control (ABAC) model is mainly enforced by means of the classes included in the packages and classes owner.authorizations, owner.DataOwner, user.DataUser, user.CredentialExchanger.
 
 It can be completely controlled via the CLIs with:
