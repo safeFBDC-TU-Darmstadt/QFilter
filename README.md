@@ -9,7 +9,7 @@ Execution with the default values (numServers=200 and batchSize=100) does not re
 To resolve the project dependencies, you will need to have gradle installed.
 Overall, you can configure the following variables:
 
-> - **numServers**: the number of servers to use (there is always a minimum threshold of servers to use for correctness; we need at least 2*c*l+2 for queries with at most c query conditions, and a maximum of l digits for any number in the uploaded table [l=8 for the first eight attributes of the *LINEITEM* table])
+> - **numServers**: the number of servers to use (there is always a minimum threshold of servers to use for correctness; we need at least 2*c*l+2 for queries with at most c query conditions, and a maximum of l digits for any number in the uploaded table [l=8 for the first eight attributes of the *LINEITEM* table in n TPC-H benchmark])
 > - **attachPolicy**: true if you want to attach a policy to the data, false otherwise
 > - **batchSize**: the batchSize to use when uploading the secret share tables to the servers (= number of rows to use for each batch upload)
 > - **rowLimit**: the maximum number of rows to upload to the servers
