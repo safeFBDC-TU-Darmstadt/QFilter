@@ -34,4 +34,6 @@ It can be completely controlled via the CLIs with:
 
 Important to know is, that first, users' attributes must be defined by data users because the policy logic can be only applied by the data owner to the existing users' attributes. The attributes coming from the Data User are in the background stored in HashMaps. This means that you have to use the HashMap keys for defining the boolean expression at the data owner side. These keys are numbers and therefore, all boolean expressions are checked for numbers. The logical connectors need to be defined in lower case letters. Brackets are allowed and applied in the expression logic. 
 ```
-__Please note:__ When first starting a Data User, an error message is displayed since no credentials are registered for this user. The error message is sufficiently caught - the application will continue to run. Credentials are created once attributes are defined for the user (since without them, no credentials are required).
+__Please note:__ When first starting a Data User, an error message is displayed since no credentials are registered for this user. 
+The error message is sufficiently caught - the application will continue to run. Credentials are created once attributes are defined 
+for the user (since without them, no credentials are required).
