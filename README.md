@@ -25,7 +25,7 @@ server.Server.main()
 owner.DataOwner.main()
 user.DataUser.main()
 ```
-For a correct startup, wait for a confirming console output of after calling <code>server.Server.main()</code> ("${numServers} servers are online!") and <code>owner.DataOwner.main()</code> ("Enter a boolean expression to express your policy logic:>>").
+For a correct startup, wait for a confirming console output of after calling <code>server.Server.main()</code> ("${numServers} servers are online!") and <code>owner.DataOwner.main()</code> ("Enter a boolean expression to express your policy logic:").
 After calling <code>user.DataUser.main()</code>, you can input attributes one by one or simple queries for the *LINEITEM* table (this prototype only supports count, sum and avg aggregation, query conditions with the same conditional type (AND/OR), and only simple query predicates like "attr=const").
 We only use the following attributes of the *LINEITEM* table: "orderkey", "partkey", "suppkey", "linenumber", "quantity", "extendedprice", "discount" and "tax".
 
