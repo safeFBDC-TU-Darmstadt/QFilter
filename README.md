@@ -25,6 +25,50 @@ server.Server.main()
 owner.DataOwner.main()
 user.DataUser.main()
 ```
+## ABAC Implementation ##
+The attribute based access control (ABAC) model is mainly enforced by means of the classes included in the packages and classes owner.authorizations, owner.DataOwner, user.DataUser, user.CredentialExchanger.
+
+It can be completely controlled via the CLIs with:
+* Input of attributes via Data User 
+* Input of access control policy logic (including defined attributes from Data User) via Data Owner (supported policies: multiple AND, OR Operations + Structure (A AND B) OR C, (A OR B) AND C).
+
+Important to know is, that first, attributes must be defined because the policy logic can be only applied to existing attributes.
+
+Exemplary Procedure:
+1) Start Registry, Server, Data Owner, One or multiple Data Users
+2) Create attributes for one/multiple Data Users via their CLI(s) => credentials are automatically generated. There are no syntax requirements, i.e. you can name your attributes however you'd like to and assign them any value you choose. An exemplary attritbute definition can look as follows:
+```
+> Task :DataUser.main()
+Enter query or 'exit' to exit or 'attribute' to add new attribute:
+>> attribute
+Enter key of attribute:
+>> testXYZ123
+Enter comparison method of attribute (=/</>/<=/<=):
+>> =
+Enter value of attribute:
+>> 1
+(Repetion for new attributes) 
+Enter query or 'exit' to exit or 'attribute' to add new attribute:
+```
+3) Define boolean expression and thereby access control policy in Data Owner. 
+
+The attributes coming from the Data User are in the background stored in HashMaps this means that you have to use the HashMap keys for defining the boolean expression. These keys are numbers => all boolean expressions are checked for numbers. The logical connectors need to be defined in lower case letters. Brackets are allowed and applied in the expression logic. 
+```
+Enter a boolean expression to express your policy logic:
+>> 1 and 2
+Enter 'y' if your policy is tuple-based:
+>> y
+If you selected an tuple-based policy, please enter the primary key otherwise enter the column-name for which the policy is applicable:
+>> y
+Enter 'y' if your policy is for 'allow' permissions:
+>> y
+(Repetion for new attributes) Enter a boolean expression to express your policy logic:
+>> 1 and (2 or 3)
+...
+```
+
+__Please note:__ When first starting a Data User, an error message is displayed since no credentials are registered for this user. The error message is sufficiently caught - the application will continue to run. Credentials are created once attributes are defined for the user (since without them, no credentials are required).
+
 For a correct startup, wait for a confirming console output of after calling <code>server.Server.main()</code> ("${numServers} servers are online!") and <code>owner.DataOwner.main()</code> ("finished uploading tables!").
 After calling <code>user.DataUser.main()</code>, you can input simple queries for the *LINEITEM* table (this prototype only supports count, sum and avg aggregation, query conditions with the same conditional type (AND/OR), and only simple query predicates like "attr=const").
 We only use the following attributes of the *LINEITEM* table: "orderkey", "partkey", "suppkey", "linenumber", "quantity", "extendedprice", "discount" and "tax".
