@@ -25,6 +25,10 @@ server.Server.main()
 owner.DataOwner.main()
 user.DataUser.main()
 ```
+For a correct startup, wait for a confirming console output of after calling <code>server.Server.main()</code> ("${numServers} servers are online!") and <code>owner.DataOwner.main()</code> ("finished uploading tables!").
+After calling <code>user.DataUser.main()</code>, you can input attributes one by one or simple queries for the *LINEITEM* table (this prototype only supports count, sum and avg aggregation, query conditions with the same conditional type (AND/OR), and only simple query predicates like "attr=const").
+We only use the following attributes of the *LINEITEM* table: "orderkey", "partkey", "suppkey", "linenumber", "quantity", "extendedprice", "discount" and "tax".
+
 ## ABAC Implementation ##
 The Attribute Based Access Control (ABAC) model is mainly enforced by means of the classes included in the packages and classes owner.authorizations, owner.DataOwner, user.DataUser, user.CredentialExchanger.
 
