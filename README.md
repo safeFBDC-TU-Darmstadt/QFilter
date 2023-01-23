@@ -2,7 +2,7 @@
 
 QFilter is a fine-grained access control enforcement mechanism tightly integrated with query processing to evaluate aggregation SQL queries (i.e., "count", "sum", and "avg" having single-dimensional, conjunctive, or disjunctive equality query conditions) over secret-shared data without revealing any information about data, associated access policies, user queries and query results. It employs an Attribute-Based Access Control (ABAC) model to specify the set of fine-grained access control policies at the data owner by adding new attributes to relation to be outsourced in such a way that each value of the new attribute represents a specific ABAC policy. It obliviously rewrites the submitted aggregation SQL query by adding some query conditions in the where clause of the query to check access authorizations and filter out unauthorized data items during query processing at the server side. It does not require any communication between any two servers before/during/after query rewriting and query execuation at the server side. QFilter has a set of string matching based operators to obliviously compute query results. It is a privacy-preserving communication-efficient access control enforcement mechanism which can supprot two levels of policy attachemts: Tuple Level Policy Attachemnt and Attribute Level Policy Attachment.
 
-__Please note:__ These prototype consists of three branches "master", "randomly-assigned-permission", and "performance-evaluation". 
+__Please note:__ QFilter consists of three branches "master", "randomly-assigned-permission", and "performance-evaluation". 
 
 ## Configuration &amp; System Requirements ##
 The memory usage of this prototype is mainly determined by the number of servers and the upload batch size.
@@ -20,7 +20,7 @@ Overall, you can configure the following variables:
 > - **accessibilityPercentage**: the percentage of tuples / column values accessible the first user group (data users are in the first user group by default)
 
 ## Manual Start ##
-For a manual start of the prototype, follow this order:
+For a manual start of the prototype in master branch, follow this order:
 ```
 manual.RegistryHost.main()
 server.Server.main()
@@ -32,7 +32,7 @@ After calling <code>user.DataUser.main()</code>, you can input attributes one by
 We only use the following attributes of the *LINEITEM* table: "orderkey", "partkey", "suppkey", "linenumber", "quantity", "extendedprice", "discount" and "tax".
 
 ## Implementation of ABAC Model ##
-The Attribute Based Access Control (ABAC) model is mainly enforced by means of the classes included in the packages and classes owner.authorizations, owner.DataOwner, user.DataUser, user.CredentialExchanger.
+The Attribute Based Access Control (ABAC) model is mainly enforced by means of the classes included in the packages and classes owner.authorizations, owner.DataOwner, user.DataUser, user.CredentialExchanger in master branch.
 
 It can be completely controlled via the CLIs with:
 * Input of attributes via Data User 
