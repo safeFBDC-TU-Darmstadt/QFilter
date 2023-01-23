@@ -20,7 +20,7 @@ Overall, you can configure the following variables:
 > - **accessibilityPercentage**: the percentage of tuples / column values accessible the first user group (data users are in the first user group by default)
 
 ## Manual Start ##
-For a manual start of the prototype in master branch, follow this order:
+For a manual start of the prototype in the master branch, follow this order:
 ```
 manual.RegistryHost.main()
 server.Server.main()
@@ -32,13 +32,13 @@ After calling <code>user.DataUser.main()</code>, you can input attributes one by
 We only use the following attributes of the *LINEITEM* table: "orderkey", "partkey", "suppkey", "linenumber", "quantity", "extendedprice", "discount" and "tax".
 
 ## Implementation of ABAC Model ##
-The Attribute Based Access Control (ABAC) model is mainly enforced by means of the classes included in the packages and classes owner.authorizations, owner.DataOwner, user.DataUser, user.CredentialExchanger in master branch.
+The Attribute Based Access Control (ABAC) model is mainly enforced by means of the classes included in the packages and classes owner.authorizations, owner.DataOwner, user.DataUser, user.CredentialExchanger.
 
 It can be completely controlled via the CLIs with:
-* Input of attributes via Data User 
+* Input of identity attributes via Data User 
 * Input of access control policy logic (including defined attributes from Data User) via Data Owner (supported policies: multiple AND, OR Operations + Structure (A AND B) OR C, (A OR B) AND C).
 
-Important to know is, that first, users' attributes must be defined by data users because the policy logic can be only applied by the data owner to the existing users' attributes. The attributes coming from the Data User are in the background stored in HashMaps. This means that you have to use the HashMap keys for defining the boolean expression at the data owner side. These keys are numbers and therefore, all boolean expressions are checked for numbers. The logical connectors need to be defined in lower case letters. Brackets are allowed and applied in the expression logic. 
+Important to know is, that first,  the set of identity attributes which explains the properties of data users must be defined by data users because the policy logic can be only applied by the data owner to the existing users' attributes. The attributes coming from the Data User are in the background stored in HashMaps. This means that you have to use the HashMap keys for defining the boolean expression at the data owner side. These keys are numbers and therefore, all boolean expressions are checked for numbers. The logical connectors need to be defined in lower case letters. Brackets are allowed and applied in the expression logic. 
 ```
 __Please note:__ When first starting a Data User, an error message is displayed since no credentials are 
 registered for this user. The error message is sufficiently caught - the application will continue to run.
