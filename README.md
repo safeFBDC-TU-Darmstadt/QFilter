@@ -2,12 +2,7 @@
 
 QFilter is a fine-grained access control enforcement mechanism tightly integrated with query processing to evaluate aggregation SQL queries (i.e., "count", "sum", and "avg" having single-dimensional, conjunctive, or disjunctive equality query conditions) over secret-shared data without revealing any information about data, associated access policies, user queries and query results. It employs an Attribute-Based Access Control (ABAC) model to specify the set of fine-grained access control policies at the data owner by adding new attributes to relation to be outsourced in such a way that each value of the new attribute represents a specific ABAC policy. It obliviously rewrites the submitted aggregation SQL query by adding some query conditions in the where clause of the query to check access authorizations and filter out unauthorized data items during query processing at the server side. It does not require any communication between any two servers before/during/after query rewriting and query execuation at the server side. QFilter has a set of string matching based operators to obliviously compute query results. It is a privacy-preserving communication-efficient access control enforcement mechanism which can supprot two levels of policy attachemts: Tuple Level Policy Attachemnt and Attribute Level Policy Attachment.
 
-## Different Branches ##
-
-This prototype consists of three branches as follows:
-> - **master**: In this branch, data users can register thier identity attributes to the data owner and receive credentials to connect to servers. The data owner can specify access policies in terms of identity attributes of data users. A data user whose identity attributes satisfy the access policy associated with a data item is allowed to perform a specific action (i.e., an aggregation function) on that data item. After data user registration process and access policy specification, data users can send thier queries and recevice the results using CLI.
-> - **randomly-assigned-perimission**: In this branch, access policies are randomly assigned to data items. You can set how the access policies can be attached (i.e, Tuple Level or attribute Level). Therefore, data users can easily sublit thier queires and recive results.
-> - **performance-evalaution**: This branch consists of all experiments  
+__Please note:__ These prototype consists of three branches "master", "randomly-assigned-permissions", and "performance-evaluation". 
 
 ## Configuration &amp; System Requirements ##
 The memory usage of this prototype is mainly determined by the number of servers and the upload batch size.
