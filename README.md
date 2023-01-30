@@ -47,4 +47,4 @@ We only use the following attributes of the *LINEITEM* table: "orderkey", "partk
 
 ## Publication ##
 
-Meghdad Mirabi and Carsten Binnig. 2023. **Integration of Access Control with Aggregation Query Processing over Outsourced Data**. In: 49th International Conference on Very Large Data Bases, Vancouver, Canada - August 28 to September 1, 2023 **(Under Review)** (Download)
+Meghdad Mirabi and Carsten Binnig. (2023). **Integration of Access Control with Aggregation Query Processing over Outsourced Data**. In: 49th International Conference on Very Large Data Bases, Vancouver, Canada - August 28 to September 1, 2023 **(Under Review)** (Download)
