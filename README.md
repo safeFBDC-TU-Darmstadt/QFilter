@@ -5,10 +5,6 @@ QFilter is a fine-grained access control enforcement mechanism tightly integrate
 
 __Please note:__ QFilter consists of two branches "master" and "performance-evaluation". 
 
-## Publication ##
-
-Meghdad Mirabi and Carsten Binnig. 2023. **Integration of Access Control with Aggregation Query Processing over Outsourced Data**. In: 49th International Conference on Very Large Data Bases, Vancouver, Canada - August 28 to September 1, 2023 **(Under Review)**.
-
 ## Configuration &amp; System Requirements ##
 QFilter requires an installation of **Java JDK version 17**. To resolve the project dependencies, you will need to have **gradle version 7.3 or higher** installed, or you can use the gradle wrapper.
 The memory usage of QFilter is mainly determined by the number of servers and the upload batch size.
@@ -48,3 +44,7 @@ Each run task requires a new terminal.
 For a correct startup with the latter, wait for a confirming console output of after calling <code>server.Server.main()</code> ("${numServers} servers are online!") and <code>owner.DataOwner.main()</code> ("finished uploading tables!").
 After calling <code>user.DataUser.main()</code>, you can input simple queries for the *LINEITEM* table (this prototype only supports count, sum and avg aggregation, query conditions with the same conditional type (AND/OR), and only simple query predicates like "attr=const").
 We only use the following attributes of the *LINEITEM* table: "orderkey", "partkey", "suppkey", "linenumber", "quantity", "extendedprice", "discount" and "tax".
+
+## Publication ##
+
+Meghdad Mirabi and Carsten Binnig. 2023. **Integration of Access Control with Aggregation Query Processing over Outsourced Data**. In: 49th International Conference on Very Large Data Bases, Vancouver, Canada - August 28 to September 1, 2023 **(Under Review)**.
