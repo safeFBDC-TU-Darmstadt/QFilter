@@ -3,11 +3,11 @@
 
 QFilter is a fine-grained access control enforcement mechanism tightly integrated with query processing to evaluate aggregation SQL queries (i.e., "count", "sum", and "avg" having single-dimensional, conjunctive, or disjunctive equality query conditions) over secret-shared data without revealing any information about data, associated access policies, user queries and query results. It employs an Attribute-Based Access Control (ABAC) model to specify the set of fine-grained access control policies at the data owner side by adding new attributes to the relation to be outsourced in such a way that each value of the new attribute represents a specific ABAC policy. It obliviously rewrites the submitted aggregation SQL query by adding some query conditions in the where clause of the query to check access authorizations and filter out unauthorized data items during query processing at the server side. It does not require any communication between any two servers before/during/after query rewriting and query execution at the server side. QFilter has a set of string matching based operators to obliviously compute query results. It is a privacy-preserving communication-efficient access control enforcement mechanism which can support two levels of policy attachments: Tuple Level Policy Attachment and Attribute Level Policy Attachment.
 
-## Publication ##
-The follwoing paper is submitted to PVLDB 2023:
-Meghdad Mirabi and Carsten Binnig. 2023. Integration of Access Control with Aggregation Query Processing over Outsourced Data. In: 49th International Conference on Very Large Data Bases, Vancouver, Canada - August 28 to September 1, 2023.
-
 __Please note:__ QFilter consists of two branches "master" and "performance-evaluation". 
+
+## Publication ##
+
+Meghdad Mirabi and Carsten Binnig. 2023. **Integration of Access Control with Aggregation Query Processing over Outsourced Data**. In: 49th International Conference on Very Large Data Bases, Vancouver, Canada - August 28 to September 1, 2023 **(Under Review)**.
 
 ## Configuration &amp; System Requirements ##
 QFilter requires an installation of **Java JDK version 17**. To resolve the project dependencies, you will need to have **gradle version 7.3 or higher** installed, or you can use the gradle wrapper.
