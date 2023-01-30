@@ -5,6 +5,12 @@ plugins {
 group 'org.dm.lab'
 version '1.0'
 
+java {
+    toolchain {
+        languageVersion = JavaLanguageVersion.of(17)
+    }
+}
+
 repositories {
     mavenCentral()
 }
@@ -15,6 +21,37 @@ dependencies {
     testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine:5.8.2'
     implementation group: 'org.mapdb', name: 'mapdb', version: '3.0.4'
     implementation 'org.postgresql:postgresql:42.3.6'
+}
+
+task runStarter(type: JavaExec) {
+    classpath = sourceSets.main.runtimeClasspath
+    mainClass = 'manual.Starter'
+    standardInput = System.in
+}
+
+
+task runRegistry(type: JavaExec) {
+    classpath = sourceSets.main.runtimeClasspath
+    mainClass = 'manual.RegistryHost'
+    standardInput = System.in
+}
+
+task runServers(type: JavaExec) {
+    classpath = sourceSets.main.runtimeClasspath
+    main = 'server.Server'
+    standardInput = System.in
+}
+
+task runDataOwner(type: JavaExec) {
+    classpath = sourceSets.main.runtimeClasspath
+    main = 'owner.DataOwner'
+    standardInput = System.in
+}
+
+task runDataUser(type: JavaExec) {
+    classpath = sourceSets.main.runtimeClasspath
+    main = 'user.DataUser'
+    standardInput = System.in
 }
 
 test {

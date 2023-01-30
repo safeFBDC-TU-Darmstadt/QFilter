@@ -7,7 +7,6 @@ import java.rmi.RemoteException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
-import java.util.stream.Collectors;
 
 public class DataDistributor {
 
@@ -25,7 +24,7 @@ public class DataDistributor {
         int numServers = serverStubs.size();
 
         // all attributes have the same number of rows
-        int rows = translatedTable.values().stream().collect(Collectors.toList()).get(0).size();
+        int rows = translatedTable.values().stream().toList().get(0).size();
 
         // create a coefficient for a linear polynomial for each value in the translated table
         List<List<Integer>> coefficients = new ArrayList<>();

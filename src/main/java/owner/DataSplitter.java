@@ -6,7 +6,6 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-import java.util.stream.Collectors;
 
 public class DataSplitter {
 
@@ -30,7 +29,7 @@ public class DataSplitter {
         for (String key : translatedTable.keySet())
             secretTable.put(key, new ArrayList<>());
 
-        var entries = translatedTable.entrySet().stream().collect(Collectors.toList());
+        var entries = translatedTable.entrySet().stream().toList();
         for (int i = 0; i < translatedTable.keySet().size(); i++) {
             var entry = entries.get(i);
             for (int j = 0; j < entry.getValue().size(); j++) {

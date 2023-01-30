@@ -7,7 +7,6 @@ import common.Query;
 import java.math.BigInteger;
 import java.rmi.RemoteException;
 import java.util.List;
-import java.util.stream.Collectors;
 
 public abstract class QueryDistributor {
 
@@ -19,7 +18,7 @@ public abstract class QueryDistributor {
             } catch (RemoteException | QueryProcessingException e) {
                 throw new RuntimeException(e);
             }
-        }).collect(Collectors.toList());
+        }).toList();
     }
 
     public static List<BigInteger[][]> distributeSumQueries(List<Query> queries, List<IServer> serverStubs, List<String> credentials) {
@@ -30,7 +29,7 @@ public abstract class QueryDistributor {
             } catch (RemoteException | QueryProcessingException e) {
                 throw new RuntimeException(e);
             }
-        }).collect(Collectors.toList());
+        }).toList();
     }
 
     public static List<List<Object>> distributeAvgQueries(List<List<Query>> queries, List<IServer> serverStubs, List<String> credentials) {
@@ -41,7 +40,7 @@ public abstract class QueryDistributor {
             } catch (RemoteException | QueryProcessingException e) {
                 throw new RuntimeException(e);
             }
-        }).collect(Collectors.toList());
+        }).toList();
     }
 
 }

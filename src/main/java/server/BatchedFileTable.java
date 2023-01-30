@@ -7,7 +7,6 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-import java.util.stream.Collectors;
 
 public class BatchedFileTable {
 
@@ -62,7 +61,7 @@ public class BatchedFileTable {
     }
 
     public void appendAttributeTable(Map<String, List<Integer>> nextTupleBatch, boolean initialize) throws IOException {
-        int numRows = nextTupleBatch.values().stream().collect(Collectors.toList()).get(0).size();
+        int numRows = nextTupleBatch.values().stream().toList().get(0).size();
         BufferedWriter writer = new BufferedWriter(new FileWriter(filePath, !initialize));
         for (int i = 0; i < numRows; i++) {
             for (int j = 0; j < attributeNames.size(); j++) {

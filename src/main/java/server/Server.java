@@ -1,6 +1,7 @@
 package server;
 
 import manual.Configuration;
+import manual.Starter;
 import user.exceptions.QueryProcessingException;
 import common.Query;
 import common.TranslatedQueryCondition;
@@ -16,8 +17,6 @@ import java.rmi.registry.LocateRegistry;
 import java.rmi.registry.Registry;
 import java.rmi.server.UnicastRemoteObject;
 import java.util.*;
-import java.util.concurrent.CompletableFuture;
-import java.util.stream.Collectors;
 
 public class Server implements IServer {
 
@@ -47,7 +46,9 @@ public class Server implements IServer {
 			registry.rebind("server-" + i, stub);
 		}
 
-		System.out.println(numServers + " servers are online!");
+		System.out.println(numServers + " servers started!");
+
+		Starter.notifyStarter();
 	}
 
 	protected List<List<TranslatedQueryCondition>> rewriteTheQuery(Query query, List<String> credentials){
@@ -162,7 +163,7 @@ public class Server implements IServer {
 	public void sendTable(String tableName, Map<String, List<Integer>> table, boolean initialize, int sharesPerValue, int serverNumber, boolean columnPolicy) throws RemoteException {
 		if (initialize) {
 			this.sharesPerValue = sharesPerValue;
-			this.batchedFileTable = new BatchedFileTable(table.keySet().stream().collect(Collectors.toList()), "src/main/resources/" + tableName + "-" + serverNumber + ".tbl", Configuration.attachPolicy, columnPolicy);
+			this.batchedFileTable = new BatchedFileTable(table.keySet().stream().toList(), "src/main/resources/" + tableName + "-" + serverNumber + ".tbl", Configuration.attachPolicy, columnPolicy);
 		}
 
 		try {

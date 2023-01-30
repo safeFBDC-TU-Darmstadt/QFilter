@@ -9,7 +9,6 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.List;
 import java.util.Map;
-import java.util.stream.Collectors;
 
 public class LocalDataUploader {
 
@@ -28,7 +27,7 @@ public class LocalDataUploader {
 
     public static void insertBatch(Map<String, List<Integer>> table, String tableName, Connection con) throws SQLException {
         con.setAutoCommit(false); // commit whole batch at the end
-        List<String> attributeNames = table.keySet().stream().collect(Collectors.toList());
+        List<String> attributeNames = table.keySet().stream().toList();
         StringBuilder insertQueryString = new StringBuilder("INSERT INTO " + tableName + " VALUES (");
         for (int i = 0; i < attributeNames.size(); i++) {
             insertQueryString.append("?");
@@ -98,7 +97,7 @@ public class LocalDataUploader {
 
     public static void storeToFile(Map<String, List<Integer>> table, String filePath, boolean initialize) throws IOException {
         BufferedWriter writer = new BufferedWriter(new FileWriter(filePath, !initialize));
-        List<String> attributeNames = table.keySet().stream().collect(Collectors.toList());
+        List<String> attributeNames = table.keySet().stream().toList();
 
         for (int i = 0; i < table.get(attributeNames.get(0)).size(); i++) {
             for (int j = 0; j < attributeNames.size(); j++) {
