@@ -2,11 +2,9 @@ package manual;
 
 public class Configuration {
 
-  // global variables
-  public static boolean attachPolicy = true;
-
   // server variables
   public static int numServers = 200;
+  public static boolean usePolicy = true;
 
   // data owner variables
   public static int batchSize = 100;

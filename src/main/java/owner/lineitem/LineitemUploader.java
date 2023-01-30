@@ -2,7 +2,6 @@ package owner.lineitem;
 
 import common.IServer;
 import common.UnaryTranslator;
-import manual.Configuration;
 import owner.DataDistributor;
 
 import java.util.*;
@@ -24,7 +23,7 @@ public class LineitemUploader {
     public static void uploadTables(int batchSize, int rowLimit, boolean columnPolicy, int numGroups,
                                     int accessibilityPercentage, List<IServer> serverStubs) throws Exception {
         LineitemReader lineitemReader = new LineitemReader();
-        String[] attributeNames = LineitemAttributes.getAttributes(Configuration.attachPolicy, columnPolicy, LineitemAttributes.attributeNames.length);
+        String[] attributeNames = LineitemAttributes.getAttributes(true, columnPolicy, LineitemAttributes.attributeNames.length);
         int numColumns = attributeNames.length;
         UnaryTranslator unaryTranslator = UnaryTranslator.getUnaryTranslatorSingleton();
         unaryTranslator.getUnaryTranslationMeta().put(LineitemAttributes.tableName, LineitemAttributes.maxStringLength);

@@ -163,7 +163,7 @@ public class Server implements IServer {
 	public void sendTable(String tableName, Map<String, List<Integer>> table, boolean initialize, int sharesPerValue, int serverNumber, boolean columnPolicy) throws RemoteException {
 		if (initialize) {
 			this.sharesPerValue = sharesPerValue;
-			this.batchedFileTable = new BatchedFileTable(table.keySet().stream().toList(), "src/main/resources/" + tableName + "-" + serverNumber + ".tbl", Configuration.attachPolicy, columnPolicy);
+			this.batchedFileTable = new BatchedFileTable(table.keySet().stream().toList(), "src/main/resources/" + tableName + "-" + serverNumber + ".tbl", Configuration.usePolicy, columnPolicy);
 		}
 
 		try {
