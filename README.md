@@ -48,7 +48,7 @@ We only use the following attributes of the *LINEITEM* table: "orderkey", "partk
 ## Publication ##
 
 Meghdad Mirabi and Carsten Binnig. (2023). **QFilter: Towards a Fine-Grained Access Control for Aggregation Query Processing over Secret Shared Data**. In: 1st Workshop on Cloud Databases (CloudDB’23), Joint Workshop at 49th International Conference on Very Large Data Bases (VLDBW’23), Vancouver, Canada - August 28 to September 1, 2023.
-<p dir="auto"><a href="https://github.com/safeFBDC-TU-Darmstadt/QFilter/blob/master/SubmittedPaper.pdf
+<p dir="auto"><a href="https://github.com/safeFBDC-TU-Darmstadt/QFilter/blob/master/QFilter-Paper.pdf
 ">The paper is available here.</a></p>
 
 
